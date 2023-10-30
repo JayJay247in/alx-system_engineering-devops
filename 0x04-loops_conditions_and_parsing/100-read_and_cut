@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Loop through /etc/passwd
+while read -r line; do
+
+  # Split line into array
+  IFS=':' read -ra ADDR <<< "$line"
+
+  # Extract username, uid, home path
+  user="${ADDR[0]}"
+  uid="${ADDR[2]}"
+  dir="${ADDR[5]}"
+
+  # Print
+  echo "$user:$uid:$dir"
+
+done < /etc/passwd

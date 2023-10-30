@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Displays only part after first dash in file names
+
+for file in *
+do
+    if [[ $file != .* ]] # ignore hidden files
+    then
+        name=${file#*-} 
+        echo "$name"
+    fi
+done

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Group and count IP hits by status code
+awk '{count[$1 FS $9]++} END{for(ip in count){print count[ip], ip}}' apache-access.log | sort -nr

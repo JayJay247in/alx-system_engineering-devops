@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Read /etc/passwd line by line
+while IFS=':' read -r username password uid gid name home shell; do
+
+  # Print line in specified format 
+  echo "The user ${username} is part of the ${gid} gang, lives in ${home} and rides ${shell}. ${uid}'s place is protected by the passcode ${password}, more info about the user here: ${name}"
+
+done < /etc/passwd
