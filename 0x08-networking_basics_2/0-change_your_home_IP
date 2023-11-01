@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Change localhost to 127.0.0.2
+sudo sed -i 's/127.0.0.1/127.0.0.2/g' /etc/hosts
+
+# Map facebook.com to 8.8.8.8 
+sudo echo "8.8.8.8 facebook.com" >> /etc/hosts 
+
+# Check changes
+ping localhost
+ping facebook.com
+
+# Reset localhost to 127.0.0.1 before exiting
+sudo sed -i 's/127.0.0.2/127.0.0.1/g' /etc/hosts

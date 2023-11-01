@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Get a list of network interfaces
+interfaces=$(ifconfig | sed 's/[ \t].*//;/^$/d' | tr '\n' ' ')
+
+# Loop through interfaces and extract IPv4 addresses  
+for interface in $interfaces
+do
+  echo $(ifconfig $interface | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1') 
+done
