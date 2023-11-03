@@ -1,10 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Listens on port 98 on localhost.
 
-# Listen on port 98 on localhost
 nc -l localhost 98
-
-# Print any received data
-while true; do 
-  read input
-  echo "$input"
-done
